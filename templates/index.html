@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictive Maintenance API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .form-group { margin: 10px 0; }
+        label { display: inline-block; width: 200px; }
+        input { padding: 5px; width: 200px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .result { background: #e8f5e8; padding: 15px; border-radius: 4px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Predictive Maintenance System</h1>
+        
+        <div class="card">
+            <h2>Machine Failure Prediction</h2>
+            <form action="/predict_form" method="post">
+                <div class="form-group">
+                    <label>Air Temperature [K]:</label>
+                    <input type="number" name="Air temperature [K]" step="0.1" value="298.1" required>
+                </div>
+                <div class="form-group">
+                    <label>Process Temperature [K]:</label>
+                    <input type="number" name="Process temperature [K]" step="0.1" value="308.6" required>
+                </div>
+                <div class="form-group">
+                    <label>Rotational Speed [rpm]:</label>
+                    <input type="number" name="Rotational speed [rpm]" value="1551" required>
+                </div>
+                <div class="form-group">
+                    <label>Torque [Nm]:</label>
+                    <input type="number" name="Torque [Nm]" step="0.1" value="42.8" required>
+                </div>
+                <div class="form-group">
+                    <label>Tool Wear [min]:</label>
+                    <input type="number" name="Tool wear [min]" value="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Type (0=L, 1=M, 2=H):</label>
+                    <input type="number" name="Type_encoded" min="0" max="2" value="0" required>
+                </div>
+                <button type="submit">Predict Failure</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>API Usage</h2>
+            <p><strong>JSON Endpoint:</strong> POST /predict</p>
+            <p><strong>Health Check:</strong> GET /health</p>
+            <p><strong>Features:</strong> GET /features</p>
+        </div>
+    </div>
+</body>
+</html>
+    

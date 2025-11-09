@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .result { background: #e8f5e8; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .failure { background: #f8d7da; }
+        .back-btn { background: #6c757d; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Prediction Result</h1>
+        
+        <div class="result {% if result.prediction == 'FAILURE' %}failure{% endif %}">
+            <h2>Prediction: {{ result.prediction }}</h2>
+            <p><strong>Failure Probability:</strong> {{ result.failure_probability }}</p>
+            <p><strong>No Failure Probability:</strong> {{ result.no_failure_probability }}</p>
+            <p><strong>Confidence:</strong> {{ result.confidence }}</p>
+        </div>
+        
+        <a href="/" class="back-btn">Make Another Prediction</a>
+    </div>
+</body>
+</html>
+    
